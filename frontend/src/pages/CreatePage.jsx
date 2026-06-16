@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const CreatePage = () => {
+const CreatePage = () => {
   return (
     <div>CreatePage</div>
   )
 }
+
+export default CreatePage
