@@ -1,9 +1,13 @@
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
+import path from "path";
+import { fileURLToPath } from "url";
 
 import dotenv from "dotenv";
 
-dotenv.config({ path: ".env.local" });
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+dotenv.config({ path: path.join(__dirname, "../../.env"), quiet: true });
 
 // create a ratelimiter that allows 3 requests per 20 seconds
 const ratelimit = new Ratelimit({
