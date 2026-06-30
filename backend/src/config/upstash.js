@@ -12,7 +12,7 @@ dotenv.config({ path: path.join(__dirname, "../../.env"), quiet: true });
 // create a ratelimiter that allows 3 requests per 20 seconds
 const ratelimit = new Ratelimit({
   redis: Redis.fromEnv(),
-  limiter: Ratelimit.slidingWindow(3, "20s"),
+  limiter: Ratelimit.slidingWindow(100, "60s"),
 });
 
 export default ratelimit;
